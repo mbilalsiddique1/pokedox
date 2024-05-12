@@ -1,30 +1,28 @@
-import { Link } from "react-router-dom";
-
-import { useGetPokemonQuery } from '../services/pokemon'
-import { IPokemonDetails } from '../services/types'
-
-import { Pokemon } from '../components/Pokemon'
+import { Header } from "../components/Header";
+import { Card } from '../components/Card'
+import { useGetPokesQuery } from '../app/services/pokemons'
+import { useAppSelector } from "../app/hooks";
 
 function Home() {
-  const { data, error, isLoading } = useGetPokemonQuery({})
+  const pokes = useAppSelector(state => state.pokes);
+  const { data, isLoading } = useGetPokesQuery()
+
+  const pokeResults = pokes && pokes.length > 0 ? pokes : (data ? data.results : []);
 
   return (
     <>
-      {error ? (
-        <>Oh no, there was an error</>
-      ) : isLoading ? (
-        <>Loading...</>
-      ) : data ? (
-        <ul>
-          {data.results.map((poke: IPokemonDetails, index: number) => (
-            <li>
-              <Link to={`/pokemon/${poke.name}`}>
-                <Pokemon key={index} name={poke.name} />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <Header />
+      <main>
+        {isLoading ? (
+          <>Loading...</>
+        ) : data ? (
+          <div className="grid grid-cols-3 gap-2">
+            {pokeResults.map((poke: any, index: number) => (
+              <Card key={index} poke={poke} />
+            ))}
+          </div>
+        ) : null}
+      </main>
     </>
   )
 }

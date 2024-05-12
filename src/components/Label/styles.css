@@ -1,0 +1,59 @@
+.label {
+  @apply inline-flex items-center rounded-full bg-gray-medium px-2 py-0.5 text-xs font-bold text-white ring-1 ring-inset ring-gray-medium/10;
+}
+
+.label--bug {
+  @apply bg-bug;
+}
+
+.label--dark {
+  @apply bg-dark;
+}
+.label--dragon {
+  @apply bg-dragon;
+}
+.label--electric {
+  @apply bg-electric;
+}
+.label--fairy {
+  @apply bg-fairy;
+}
+.label--fighting {
+  @apply bg-fighting;
+}
+.label--fire {
+  @apply bg-fire;
+}
+.label--flying {
+  @apply bg-flying;
+}
+.label--ghost {
+  @apply bg-ghost;
+}
+.label--normal {
+  @apply bg-normal;
+}
+.label--grass {
+  @apply bg-grass;
+}
+.label--ground {
+  @apply bg-ground;
+}
+.label--ice {
+  @apply bg-ice;
+}
+.label--poison {
+  @apply bg-poison;
+}
+.label--psychic {
+  @apply bg-psychic;
+}
+.label--rock {
+  @apply bg-rock;
+}
+.label--steel {
+  @apply bg-steel;
+}
+.label--water {
+  @apply bg-water;
+}
