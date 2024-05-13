@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { api } from './services/api'
+import { api } from '../services/api'
 import pokes from '../features/pokemonSlice'
 
 const persistConfig = {
@@ -52,5 +52,6 @@ setupListeners(store.dispatch)
 export type AppDispatch = typeof store.dispatch
 export const useAppDispatch: () => AppDispatch = useDispatch
 export type RootState = ReturnType<typeof store.getState>
+export type AppStore = ReturnType<typeof createStore>
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector
 

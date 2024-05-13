@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { selectPoke } from '../features/pokemonSlice'
-import { pokesApi } from '../app/services/pokemons';
+import { pokesApi } from '../services/pokemons';
 import { dreamWorld, generateAbbreviation } from '../utils'
 import { Progress } from '../components/Progress';
 

@@ -1,6 +1,6 @@
 import { Header } from "../components/Header";
 import { Card } from '../components/Card'
-import { useGetPokesQuery } from '../app/services/pokemons'
+import { useGetPokesQuery } from '../services/pokemons'
 import { useAppSelector } from "../app/hooks";
 
 function Home() {

@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# Pokemon React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+This React application retrieves a list of Pokemon from the [PokeAPI](https://pokeapi.co/) and stores the list persistently using TypeScript, Redux Toolkit, and RTK Query. Upon clicking an item in the list, the application displays the details of the corresponding Pokemon.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Retrieves a list of Pokemon from the PokeAPI
+- Stores the list persistently using Redux Toolkit and RTK Query
+- Displays details of the selected Pokemon when clicked
+- Written in TypeScript for type safety
+- Unit tests for both screens ensure reliability and correctness
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the repository to your local machine:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/mbilalsiddique1/pokedox.git
+```
 
-### `npm test`
+2. Navigate to the project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+cd pokedox
+```
 
-### `npm run build`
+3. Install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application start script can be configured to use different BASE API URLs. You can set the BASE API URLs by modifying environment variables in a `.env` file:
 
-### `npm run eject`
+```
+REACT_APP_BASE_API_URL=https://pokeapi.co/api/v2/
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Running the Application
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run the application, use the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This will start the development server, and the application will be accessible at [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run unit tests, use the following command:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm test
+```
+
+This will run all unit tests and display the coverage report. The application aims to achieve at least 60% coverage of unit and integration testing to ensure reliability and correctness.
+
+## API Endpoints
+
+- **GET** - [https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/): Retrieves a list of Pokemon.
+- **GET** - [https://pokeapi.co/api/v2/pokemon/1/](https://pokeapi.co/api/v2/pokemon/1/): Retrieves details of a specific Pokemon (e.g., Pokemon with ID 1).
+
+---
+
+This README provides detailed instructions on how to run the application, configure environment variables.

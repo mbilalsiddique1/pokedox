@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { dreamWorld } from '../../utils';
-import { pokesApi } from '../../app/services/pokemons'
+import { pokesApi } from '../../services/pokemons'
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { selectPoke } from '../../features/pokemonSlice'
 
