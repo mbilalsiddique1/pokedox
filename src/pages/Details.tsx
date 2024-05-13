@@ -48,7 +48,7 @@ function Details() {
             </div>
 
             <div className="flex items-center justify-center w-full min-h-64 p-4">
-              <img className='drop-shadow-md w-full' src={dreamWorld(currentPoke.sprites.front_default)} alt={currentPoke.species.name} />
+              <img className='drop-shadow-md w-full max-h-80' src={dreamWorld(currentPoke.sprites.front_default)} alt={currentPoke.species.name} />
             </div>
 
             <img className='absolute top-4 right-2 -z-[1] opacity-10' src='pokeball.svg' width="200" height="200" alt={currentPoke.species.name} />
