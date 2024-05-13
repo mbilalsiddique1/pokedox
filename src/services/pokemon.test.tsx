@@ -25,7 +25,7 @@ describe('useGetPokesQuery', () => {
     );
   });
 
-  it('renders hook', async () => {
+  it('fetches list of Pokemons', async () => {
     const { result } = renderHook(() => useGetPokesQuery(), {
       wrapper,
     });
@@ -54,22 +54,44 @@ describe('useGetPokesQuery', () => {
   });
 });
 
-// beforeAll(() => {
-//   fetchMock.mockOnceIf('https://pokeapi.co/api/v2/pokemon/pikachu', () =>
-//     Promise.resolve({
-//       status: 200,
-//       body: JSON.stringify({ data }),
-//     })
-//   );
-// });
+describe('useGetPokesQuery', () => {
+  const pokemon = 'pikachu';
+  const data = {};
 
-// function wrapper({ children }: { children: ReactNode }) {
-//   return <Provider store={store}>{children}</Provider>;
-// }
+  beforeEach(() => {
+    fetchMock.mockOnceIf(`${process.env.REACT_APP_BASE_API_URL}/pokemon/${pokemon}`, () =>
+      Promise.resolve({
+        status: 200,
+        body: JSON.stringify({ data }),
+      })
+    );
+  });
 
-// it('render hook', () => {
-//   const { result } = renderHook(() => useGetPokesQuery(), { wrapper });
+  it('fetches details of a Pokemon', async () => {
+    const { result } = renderHook(() => useGetPokeQuery(pokemon), {
+      wrapper,
+    });
 
-//   expect(result.current.isLoading).toBe(true);
+    expect(result.current).toMatchObject({
+      status: 'pending',
+      endpointName: 'getPoke',
+      isLoading: true,
+      isSuccess: false,
+      isError: false,
+      isFetching: true,
+      data,
+    });
 
-// });
+    await waitFor(() => expect(result.current.isSuccess).toBe(true));
+
+    expect(result.current).toMatchObject({
+      status: 'fulfilled',
+      data,
+      isLoading: false,
+      isSuccess: true,
+      isError: false,
+      currentData: data,
+      isFetching: false,
+    });
+  });
+});
